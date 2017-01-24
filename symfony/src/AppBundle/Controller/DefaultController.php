@@ -13,9 +13,17 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
+        /** @var \Ekino\WordpressBundle\Manager\PostManager $postManager */
+        $postManager = $this->get('ekino.wordpress.manager.post');
+
+        $criteria = [
+            'type' => 'post',
+            'status' => 'publish',
+        ];
+        $posts = $postManager->findBy($criteria);
+
         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+            'posts' => $posts,
         ]);
     }
 }
