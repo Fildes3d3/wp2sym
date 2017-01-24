@@ -6,10 +6,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class DefaultController extends Controller
+class WordpressController extends Controller
 {
     /**
-     * @Route("/symfony", name="homepage")
+     * @Route("/wordpress", name="wordpress_homepage")
      */
     public function indexAction(Request $request)
     {
@@ -22,13 +22,13 @@ class DefaultController extends Controller
         ];
         $posts = $postManager->findBy($criteria);
 
-        return $this->render('default/index.html.twig', [
+        return $this->render('wordpress/index.html.twig', [
             'posts' => $posts,
         ]);
     }
 
     /**
-     * @Route("/symfony/{name}", name="post")
+     * @Route("/wordpress/{name}", name="wordpress_post")
      */
     public function showAction(Request $request, $name)
     {
@@ -40,7 +40,7 @@ class DefaultController extends Controller
         ];
         $post = $postManager->findOneBy($criteria);
 
-        return $this->render('default/show.html.twig', [
+        return $this->render('wordpress/show.html.twig', [
             'post' => $post,
         ]);
     }
