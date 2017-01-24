@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 class WordpressController extends Controller
 {
     /**
-     * @Route("/wordpress", name="wordpress_homepage")
+     * @Route("/wordpress/", name="wordpress_homepage")
      */
     public function indexAction(Request $request)
     {
