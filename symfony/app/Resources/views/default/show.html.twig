@@ -4,14 +4,12 @@
     <div id="wrapper">
         <div id="container">
             <div id="welcome">
-                <h1><span>Welcome to</span> Wordpress 2 Symfony</h1>
+                <h1><span>{{ post.title }}</span></h1>
             </div>
 
 
 
-            {%  for post in posts %}
-                <p>{{ post.ID }}: <a href="{{ path('post', {name: post.name}) }}">{{ post.title }}</a></p>
-            {% endfor %}
+           {{ post.content }}
 
 
 

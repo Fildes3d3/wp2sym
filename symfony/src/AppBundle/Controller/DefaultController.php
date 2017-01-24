@@ -26,4 +26,22 @@ class DefaultController extends Controller
             'posts' => $posts,
         ]);
     }
+
+    /**
+     * @Route("/{name}", name="post")
+     */
+    public function showAction(Request $request, $name)
+    {
+        /** @var \Ekino\WordpressBundle\Manager\PostManager $postManager */
+        $postManager = $this->get('ekino.wordpress.manager.post');
+
+        $criteria = [
+            'name' => $name,
+        ];
+        $post = $postManager->findOneBy($criteria);
+
+        return $this->render('default/show.html.twig', [
+            'post' => $post,
+        ]);
+    }
 }
