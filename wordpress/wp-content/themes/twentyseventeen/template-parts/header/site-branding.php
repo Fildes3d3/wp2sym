@@ -8,6 +8,9 @@
  * @version 1.0
  */
 
+$customDateService = symfony('custom_date.service');
+$customDate = $customDateService->getCurrentTime();
+
 ?>
 <div class="site-branding">
 	<div class="wrap">
@@ -25,6 +28,8 @@
 				if ( $description || is_customize_preview() ) : ?>
 					<p class="site-description"><?php echo $description; ?></p>
 				<?php endif; ?>
+
+            <p><?php echo $customDate; ?></p>
 		</div><!-- .site-branding-text -->
 
 		<?php if ( ( twentyseventeen_is_frontpage() || ( is_home() && is_front_page() ) ) && ! has_nav_menu( 'top' ) ) : ?>
