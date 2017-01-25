@@ -30,8 +30,14 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
+            <?php
+            $customDateService = symfony('custom_date.service');
+            $customDate = $customDateService->getCurrentTime();
+            ?>
 
+            <p><?php echo $customDate; ?></p>
 			<?php
+
 			if ( have_posts() ) :
 
 				/* Start the Loop */
